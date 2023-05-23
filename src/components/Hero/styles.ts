@@ -6,7 +6,7 @@ export const Imagem = styled.div`
   height: 280px;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.95;
+  opacity: 0.80;
 
   .container {
     height: 186px;

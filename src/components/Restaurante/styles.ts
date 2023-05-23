@@ -9,6 +9,11 @@ export const Card = styled.div`
     border-color: #E66767;
     margin-top: 32px;
     margin-bottom: 32px;
+
+    > img {
+        width: 472px;
+        height: 217px;
+    }
 `
 
 export const LinhaInfo = styled.div`

@@ -1,26 +1,31 @@
-import Fornecedor from "../../models/fornecedores";
 import Restaurante from "../Restaurante";
 import { List } from './styles'
 
+import { Participante } from '../../pages/Home'
+
 export type Props = {
-    participantes: Fornecedor[]
+    participantes: Participante[]
 }
 
-const RestaurantList = ({ participantes }: Props) => (
-    <div className="container">
+const RestaurantList = ({ participantes }: Props) => {
+    return(
+        <div className="container">
             <List>
-                {participantes.map(empresa => (
-                    <Restaurante
-                        key={empresa.id}
-                        title={empresa.title}
-                        nota={empresa.nota}
-                        image={empresa.image}
-                        category={empresa.category}
-                        description={empresa.description}
-                    />
+                {participantes.map((empresa) => (
+                    <li key={empresa.id}>
+                        <Restaurante
+                            id={empresa.id}
+                            titulo={empresa.titulo}
+                            category={empresa.tipo}
+                            avaliacao={empresa.avaliacao}
+                            description={empresa.descricao}
+                            image={empresa.capa}
+                        />
+                    </li>
                 ))}
             </List>
-    </div>
-)
+        </div>
+    )
+}
 
 export default RestaurantList

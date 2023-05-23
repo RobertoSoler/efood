@@ -12,6 +12,8 @@ export const Card = styled.div`
     align-items: center;
 
     img {
+        width: 304px;
+        height: 167px;
         padding: 8px 8px;
         width: 100%;
     }
@@ -33,6 +35,7 @@ export const Descricao = styled.p`
     margin-left: 8px;
     margin-right: 8px;
     color: ${cores.claro};
+    height: 120px; 
 `
 
 export const GoTag = styled.div`

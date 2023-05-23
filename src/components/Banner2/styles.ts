@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Imagem = styled.div`
@@ -13,15 +14,17 @@ export const Imagem = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 64px 64px;
+    font-size: 18px;
 
     img {
         max-width: 125px
         height: auto;
       }
     
-      h3 {
-        font-size: 18px;
-      }
-
   }
+`
+
+export const Retorno = styled(Link)`
+  font-size: 24px;
+  color: #E66767;
 `

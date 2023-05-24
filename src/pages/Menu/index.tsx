@@ -14,7 +14,10 @@ import Principal from "../../components/Modal"
 const Menu = () => {
     const { id } = useParams()
 
+    const [nomeRestaurante, SetTitulo] = useState('');
+    const [tipoComida, SetCategoria] = useState('');
     const [advice, setAdvice] = useState([]);
+
     useEffect(() => {
         // const url = "https://fake-api-tau.vercel.app/api/efood/restaurantes/1";
         const url = `https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`;
@@ -22,7 +25,8 @@ const Menu = () => {
           try {
             const response = await fetch(url);
             const json = await response.json();
-            // console.log(json.cardapio);
+            SetTitulo(json.titulo);
+            SetCategoria(json.tipo);
             setAdvice(json.cardapio);
           } catch (error) {
             console.log("error", error);
@@ -42,7 +46,7 @@ const Menu = () => {
     return (
         <>
             <Banner2 />
-            <Hero />
+            <Hero titulo={nomeRestaurante} categoria={tipoComida} /> 
             {/* <CardapioList itensCardapio={advice}/> */}
             <Principal itensCardapio={advice}/>
         </>

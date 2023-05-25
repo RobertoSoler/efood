@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const List = styled.ul`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 16px;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const Prato = styled.div`

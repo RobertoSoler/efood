@@ -1,10 +1,14 @@
 import { List,Prato,Titulo,GoTag1,GoTag2,FotoPrato,Modal,ModalContent,Descricao } from './styles'
 import fechar from '../../assets/images/fechar.png'
-import { Participante,CardapioItem } from '../../pages/Home'
+import { CardapioItem } from '../../pages/Home'
 import { useState } from "react";
+
+import { add,open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
 
 export type Props = {
     itensCardapio: CardapioItem[]
+    // itensCardapio: CardapioItem
 }
 
 // type Props = {
@@ -28,6 +32,8 @@ export const formataPreco = (preco = 0) => {
 }
 
 const Principal = ({ itensCardapio }: Props) => {
+
+    const dispatch = useDispatch()
 
     const menuItem = {id: 1, nome: 'nome', preco: 1.00, foto: 'imagem',descricao: 'descricao', porcao: 'porcao'};
     const [dadosPrato, setDadosPrato] = useState(menuItem)
@@ -59,6 +65,11 @@ const Principal = ({ itensCardapio }: Props) => {
         })
     }
 
+    const addToCart = () => {
+        dispatch(add(dadosPrato))
+        dispatch(open())
+      }
+
     return (
         <div className="container">
             <List>   
@@ -88,7 +99,7 @@ const Principal = ({ itensCardapio }: Props) => {
                     <h4>{dadosPrato.nome}</h4>
                     <p>{dadosPrato.descricao}</p>
                     <p>{`Serve de ${dadosPrato.porcao}`}</p>
-                    <GoTag2>{`Adicionar ao carrinho - ${formataPreco(dadosPrato.preco)}`}</GoTag2>
+                    <GoTag2 onClick={addToCart}>{`Adicionar ao carrinho - ${formataPreco(dadosPrato.preco)}`}</GoTag2>
                     </div>      
                 </ModalContent>
                 <div

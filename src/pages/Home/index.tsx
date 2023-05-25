@@ -1,6 +1,7 @@
 import Banner from "../../components/Banner"
 import RestaurantList from "../../components/RestaurantList"
 import { useEffect, useState } from "react"
+import { useGetParticipantesQuery } from "../../services/api";
 
 export type Participante = {
     id: number;
@@ -45,20 +46,36 @@ export type CardapioItem = {
 
 const Home = () => {
 
-    const [restaurantes, setRestaurantes] = useState<Participante[]>([])
+    // const [restaurantes, setRestaurantes] = useState<Participante[]>([])
 
-    useEffect(() => {
-        fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-        .then((res) => res.json())
-        .then((res) => setRestaurantes(res))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    //     .then((res) => res.json())
+    //     .then((res) => setRestaurantes(res))
+    // }, [])
+
+    // return (
+    //     <>
+    //         <Banner />
+    //         <RestaurantList participantes={restaurantes} />
+    //     </>
+    // )
+
+    const { data: restaurantes } = useGetParticipantesQuery();
+
+    if (restaurantes) {
+        return (
+            <>
+                <Banner />
+                <RestaurantList participantes={restaurantes} />
+            </>
+        )
+    }
 
     return (
-        <>
-            <Banner />
-            <RestaurantList participantes={restaurantes} />
-        </>
-    )
+        <h4>Carregando...</h4>
+      )
+
 }
 
 export default Home

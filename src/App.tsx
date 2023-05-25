@@ -1,53 +1,23 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 import { GlobalCss } from './styles';
 
 import Rotas from './routes'
 import Footer from './components/Footer';
+import { store } from './store'
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalCss />
-      <Rotas />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalCss />
+        <Rotas />
+        <Footer />
+        <Cart />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
 export default App;
-
-
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// import { GlobalCss } from './styles';
-// import Home from './pages/Home';
-// import Menu from './pages/Menu';
-
-// const rotas = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Home />
-//   },
-//   {
-//     path: '/restaurante',
-//     element: <Menu />
-//   }
-// ])
-
-// function App() {
-//   return (
-//     <>
-//       <GlobalCss />
-//       <div>
-//         <RouterProvider router={rotas} />
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;

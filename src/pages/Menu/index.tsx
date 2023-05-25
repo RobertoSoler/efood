@@ -19,7 +19,6 @@ const Menu = () => {
     const [advice, setAdvice] = useState([]);
 
     useEffect(() => {
-        // const url = "https://fake-api-tau.vercel.app/api/efood/restaurantes/1";
         const url = `https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`;
         const fetchData = async () => {
           try {

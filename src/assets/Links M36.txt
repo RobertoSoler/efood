@@ -15,3 +15,33 @@ https://fake-api-tau.vercel.app/api/eplay/jogos/ID - ID vai do 1 ao 19
 API para ser utilizada nos exercícios
 https://fake-api-tau.vercel.app/api/efood/restaurantes
 https://fake-api-tau.vercel.app/api/efood/restaurantes/ID - ID vai do 1 ao 6
+
+{
+    "products": [
+        {
+            "id": 1,
+            "price": 0
+        }
+    ],
+    "delivery": {
+        "receiver": "string",
+        "address": {
+            "description": "string",
+            "city": "string",
+            "zipCode": "string",
+            "number": 12,
+            "complement": "string"
+        }
+    },
+    "payment": {
+        "card": {
+            "name": "string",
+            "number": "string",
+            "code": 123,
+            "expires": {
+                "month": 12,
+                "year": 1234
+            }
+        }
+    }
+}

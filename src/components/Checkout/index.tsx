@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { usePurchaseMutation } from "../../services/api"
 
 const Checkout = () => {
-    const[isEntrega, SetEntrega] = useState(true)
+    const [isEntrega, SetEntrega] = useState(true)
     const [purchase, { isLoading, isError, data, isSuccess }] = usePurchaseMutation()
 
     const form = useFormik({
@@ -76,6 +76,13 @@ const Checkout = () => {
         return ''
     }
 
+    const checkInput = (fieldName: string, message?: string) => {
+        const isTouched = fieldName in form.touched
+        const isInvalid = fieldName in form.errors
+        const hasError = isTouched && isInvalid
+        return hasError
+    }
+
     return (
         <CheckoutContainer className= "isOpen">
             <Overlay />
@@ -117,8 +124,9 @@ const Checkout = () => {
                                     name="fullName" value={form.values.fullName}
                                     onChange={form.handleChange}
                                     onBlur={form.handleBlur}
+                                    className={checkInput('fullName') ? 'error' : ''}
                                 />
-                                <small>{getErrorMessage('fullName',form.errors.fullName)}</small>
+                                {/* <small>{getErrorMessage('fullName',form.errors.fullName)}</small> */}
                             </Linha>
                             <Linha>
                                 <label htmlFor="description">Endereço</label>

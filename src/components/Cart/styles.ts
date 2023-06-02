@@ -12,6 +12,25 @@ export const Overlay = styled.div`
   background-color: #000;
   opacity: 0.7;
 `
+export const Carrinho = styled.div`
+  > h4 {
+    background-color: ${cores.claro};
+    color: ${cores.vermelho};
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    // margin-left: 8px;
+    // margin-bottom: 8px;
+    // margin-right: 8px;
+    width: 240px;
+    padding: 8px 8px;
+    cursor: pointer;
+    width: 100%;
+  }
+`
+export const Checkout = styled.div`
+
+`
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -20,6 +39,21 @@ export const CartContainer = styled.div`
   width: 100%;
   height: 100%;
   display: none;
+  justify-content: flex-end;
+  z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
+`
+
+export const CheckoutContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: flex-end;
   z-index: 1;
 
@@ -45,28 +79,54 @@ export const SideBar = styled.div`
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    // margin-left: 8px;
-    // margin-bottom: 8px;
-    // margin-right: 8px;
     width: 240px;
     padding: 8px 8px;
     cursor: pointer;
     width: 100%;
   }
+  h2 {
+    color: ${cores.claro};
+    font-size: 16px;
+  }
+
+  label {
+    background-color: ${cores.vermelho};
+    color: ${cores.claro};
+    font-size: 14px;
+  }
+
+  input {
+    color: #4B4B4B;
+    font-size: 14px;
+    font-wight: bold;
+    width: 100%;
+
+    &.error {
+      border: 2px solid yellow;
+    }
+  }
 `
 
-// export const Prices = styled.p`
-//   font-weight: bold;
-//   font-size: 14px;
-//   color: ${cores.claro};
-//   margin-bottom: 24px;
+export const Card = styled.div`
+  height: 100%;
+  margin-top: 16px;
+  margin-bottom: 24px;
 
-//   span {
-//     display: block;
-//     font-size: 12px;
-//     color: ${cores.claro};
-//   }
-// `
+  label {
+      margin-top: 8px;
+  }
+
+  input {
+      height: 32px;
+  }
+`
+export const Confirmacao = styled.div`
+  color: ${cores.claro};
+
+  p {
+    margin-top: 16px;
+  }
+`
 
 export const CartItem = styled.li`
   display: flex;
@@ -122,4 +182,75 @@ export const LinhaTotal = styled.div`
   margin-bottom: 16px;
   margin-top: 32px;
   justify-content: space-between;
+`
+
+export const Button = styled.button`
+    background-color: ${cores.claro};
+    color: ${cores.vermelho};
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 4px;
+    width: 100%;
+    cursor: pointer;
+    height: 24px;
+    border: none;
+`
+export const Grupo = styled.div`
+    display: block;
+`
+export const Linha1 = styled.div`
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        width: 155px;
+    }
+`
+export const Linha2= styled.div`
+    display: flex;
+    margin-top: 4px;
+    justify-content: space-between;
+
+    input {
+        width: 155px;
+        height: 32px;
+    }
+
+`
+
+export const Linha = styled.div`
+    margin-top: 4px;
+
+    small {
+      color: ${cores.claro};
+    }
+
+    input {
+      color: #4B4B4B;
+      font-size: 14px;
+      font-wight: bold;
+      width: 100%;
+  
+    }
+`
+
+export const DivBotoes = styled.div`
+    margin-top: 32px;
+
+  button {
+    background-color: ${cores.claro};
+    color: ${cores.vermelho};
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 4px;
+    width: 100%;
+    cursor: pointer;
+    height: 24px;
+    border: none;
+  }
 `

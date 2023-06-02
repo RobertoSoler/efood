@@ -36,7 +36,6 @@ export const Card = styled.div`
   input {
       height: 32px;
   }
-
 `
 
 export const Confirmacao = styled.div`
@@ -70,6 +69,10 @@ export const SideBar = styled.div`
     font-size: 14px;
     font-wight: bold;
     width: 100%;
+
+    &.error {
+      border: 2px solid yellow;
+    }
   }
 `
 
@@ -122,6 +125,14 @@ export const Linha = styled.div`
 
     small {
       color: ${cores.claro};
+    }
+
+    input {
+      color: #4B4B4B;
+      font-size: 14px;
+      font-wight: bold;
+      width: 100%;
+  
     }
 `
 
